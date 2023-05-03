@@ -59,7 +59,15 @@ public class MovieRepository {
     }
 
     public void deleteAllDirectors() {
-        directorDb.clear();
-        movieDirectorMap.clear();
+        for(String dir:directorDb.keySet()){
+            directorDb.remove(dir);
+            for (HashMap.Entry<String,String>entry:movieDirectorMap.entrySet()){
+                if(entry.getValue().equals(dir)){
+                    String mname=entry.getKey();
+                    movieDb.remove(mname);
+                    movieDirectorMap.remove(mname);
+                }
+            }
+        }
     }
 }

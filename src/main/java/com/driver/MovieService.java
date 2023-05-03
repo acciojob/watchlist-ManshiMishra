@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MovieService {
     @Autowired
-    private MovieRepository movieRepository;
+    MovieRepository movieRepository;
 
     public String addMovie(Movie movie) {
         String ans=movieRepository.addMovie(movie);
